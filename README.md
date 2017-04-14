@@ -4,7 +4,7 @@ frontend-nanodegree-arcade-game
 
 ## How to Run
 
-To run the game, open [index.html](index.html) in your web browser of choice.
+To run the game, open [index.html](https://github.com/ajawsm/Udacity-ArcadeGame/blob/master/index.html) in your web browser of choice.
 
 ## How to Play
 
