@@ -1,5 +1,4 @@
-var x = this.x;
-var y = this.y;
+
 var dx = 101;
 var dy = 83;
 var height = 415;
@@ -15,7 +14,7 @@ var enemyHeight = 60;
 // Enemies our player must avoid
 
 /*The enemies start off the screen and pick a random speed from the speedArray*/
-var Enemy = function(x, y, speed) {
+var Enemy = function(x, y) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -37,7 +36,7 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
 
-    this.x = this.x += this.speed * dt;
+    this.x += this.speed * dt;
     if (this.x >= 505) {
         this.x = 0;
     }
@@ -63,15 +62,13 @@ Thanks Udacity forums for help with different ways of accomplishing this.
 We could also do this with a switch, but I chose if/else method*/
 Player.prototype.handleInput = function(direction) {
     if (direction === 'up' && this.y - dy < height && this.y - dy > -20) {
-        y = this.y -= dy;
+        this.y -= dy;
     } else if (direction === 'down' && this.y + dy < height && this.y + dy > -20) {
-        y = this.y += dy;
+        this.y += dy;
     } else if (direction === 'left' && this.x - dx < width && this.x - dx > -20) {
-        x = this.x -= dx;
+        this.x -= dx;
     } else if (direction === 'right' && this.x + dx < width && this.x + dx > -20) {
-        x = this.x += dx;
-    } else {
-        return false;
+        this.x += dx;
     }
 };
 
@@ -83,15 +80,15 @@ Player.prototype.render = function() {
 
 /* Resets the player at his starting position */
 Player.prototype.reset = function() {
-    player.x = 200;
-    player.y = 400;
+    this.x = 200;
+    this.y = 400;
 };
 
 /* Give user a victory message and resets game */
 Player.prototype.victory = function() {
-    if (player.y <= -15) {
+    if (this.y <= -15) {
         alert('You win! Bug out!')
-        player.reset();
+        this.reset();
     }
 };
 
